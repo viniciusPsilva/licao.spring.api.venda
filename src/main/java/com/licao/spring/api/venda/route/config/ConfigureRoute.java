@@ -16,7 +16,7 @@ public class ConfigureRoute extends RouteBuilder{
 
 		@SuppressWarnings("unchecked")
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean(
-				new CamelHttpTransportServlet(), "/api/vendas/*");
+				new CamelHttpTransportServlet(), "/api/*");
 		registrationBean.setName("CamelServlet");
 
 		return registrationBean;
@@ -27,7 +27,7 @@ public class ConfigureRoute extends RouteBuilder{
 		restConfiguration()
 		.dataFormatProperty("prettyPrint", "true")
 		.component("servlet")
-		.bindingMode(RestBindingMode.off)
+		.bindingMode(RestBindingMode.json)
 		.skipBindingOnErrorCode(false)
 		.apiContextPath("/api-doc")
 			.apiProperty("api.title", "API-Venda")
