@@ -17,14 +17,7 @@ public class EstoqueBean{
 		Gson gson = new Gson();
 		Venda venda = gson.fromJson(body, Venda.class);
 		
-			
 		String itens = gson.toJson(venda.getItens());
-		
-		System.out.println("==========================================");
-		System.out.println("==========================================");
-		System.out.println("==========Itens: "+itens+"=================");
-		System.out.println("==========================================");
-		System.out.println("==========================================");
 		
 		exchange.getIn().setBody(itens);
 		
